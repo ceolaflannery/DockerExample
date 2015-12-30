@@ -1,0 +1,12 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - docker login --email=ceolaflannery@gmail.com --username=ceola --password=password
+
+script:
+  - docker build -t cj-asp-dockertest .
+  - docker tag cj-asp-dockertest:latest ceola/cj-asp-dockertest:latest
+  - docker push ceola/cj-asp-dockertest:latest
